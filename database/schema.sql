@@ -1,0 +1,55 @@
+CREATE DATABASE IF NOT EXISTS decms_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE Evidence_management;
+
+CREATE TABLE IF NOT EXISTS users (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ username VARCHAR(50) NOT NULL UNIQUE,
+ password VARCHAR(100) NOT NULL,
+ full_name VARCHAR(100) NOT NULL,
+ role VARCHAR(30) DEFAULT 'ADMIN'
+);
+INSERT IGNORE INTO users(username,password,full_name,role) VALUES('admin','admin123','System Administrator','ADMIN');
+
+CREATE TABLE IF NOT EXISTS cases (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ case_no VARCHAR(30) NOT NULL UNIQUE,
+ title VARCHAR(150) NOT NULL,
+ description TEXT,
+ category VARCHAR(80),
+ status VARCHAR(30) DEFAULT 'OPEN',
+ priority VARCHAR(20) DEFAULT 'MEDIUM',
+ investigator VARCHAR(100),
+ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE IF NOT EXISTS suspects (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ case_id INT NOT NULL,
+ full_name VARCHAR(120) NOT NULL,
+ age INT,
+ gender VARCHAR(30),
+ contact VARCHAR(80),
+ address TEXT,
+ notes TEXT,
+ FOREIGN KEY(case_id) REFERENCES cases(id) ON DELETE CASCADE
+);
+CREATE TABLE IF NOT EXISTS evidence (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ case_id INT NOT NULL,
+ evidence_name VARCHAR(150) NOT NULL,
+ evidence_type VARCHAR(80),
+ description TEXT,
+ original_filename VARCHAR(255),
+ stored_filename VARCHAR(255),
+ sha256 CHAR(64),
+ uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ FOREIGN KEY(case_id) REFERENCES cases(id) ON DELETE CASCADE
+);
+CREATE TABLE IF NOT EXISTS reports (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ case_id INT NOT NULL,
+ report_title VARCHAR(150) NOT NULL,
+ author VARCHAR(100),
+ report_text TEXT NOT NULL,
+ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ FOREIGN KEY(case_id) REFERENCES cases(id) ON DELETE CASCADE
+);

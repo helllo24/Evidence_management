@@ -1,0 +1,587 @@
+
+/* =====================================================
+   DECMS - DIGITAL EVIDENCE CASE MANAGEMENT SYSTEM
+   Modern Dark Blue Professional UI
+   ===================================================== */
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* =====================================================
+   ROOT VARIABLES
+   ===================================================== */
+
+:root {
+    --bg: #081225;
+    --surface: #101d36;
+    --surface-light: #172744;
+    --border: #263c61;
+
+    --primary: #1677ff;
+    --primary-hover: #3995ff;
+    --primary-light: #58a7ff;
+
+    --text: #f0f5ff;
+    --muted: #94a9c9;
+
+    --green: #16c784;
+    --red: #f04452;
+    --orange: #ffab27;
+
+    --radius: 14px;
+}
+
+/* =====================================================
+   GLOBAL RESET
+   ===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            #102b55 0%,
+            transparent 35%
+        ),
+        var(--bg);
+
+    color: var(--text);
+
+    min-height: 100vh;
+    padding: 30px;
+
+    line-height: 1.6;
+}
+
+/* =====================================================
+   HEADINGS
+   ===================================================== */
+
+h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.small {
+    font-size: 12px;
+}
+
+/* =====================================================
+   LINKS
+   ===================================================== */
+
+a {
+    color: var(--primary-light);
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+a:hover {
+    color: #91c6ff;
+}
+
+/* =====================================================
+   CARDS
+   ===================================================== */
+
+.card {
+    background: linear-gradient(
+        145deg,
+        #142644,
+        #0e1b33
+    );
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    padding: 24px;
+    margin: 20px 0;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.18);
+
+    transition:
+        border-color 0.25s,
+        transform 0.25s;
+}
+
+.card:hover {
+    border-color: #3b65a0;
+}
+
+/* =====================================================
+   DASHBOARD GRID
+   ===================================================== */
+
+.grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 20px;
+    margin: 25px 0;
+}
+
+.metric {
+    font-size: 34px;
+    font-weight: 800;
+
+    color: var(--primary-light);
+
+    margin-top: 8px;
+}
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 18px 24px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    margin-bottom: 30px;
+}
+
+header h2,
+header h3 {
+    margin-bottom: 0;
+}
+
+/* =====================================================
+   NAVIGATION
+   ===================================================== */
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+nav a {
+    display: inline-block;
+
+    padding: 10px 16px;
+
+    background: var(--surface-light);
+
+    border-radius: 9px;
+
+    color: #b9cce8;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: 0.25s;
+}
+
+nav a:hover {
+    background: var(--primary);
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+/* =====================================================
+   BUTTONS
+   ===================================================== */
+
+.btn,
+button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 11px 18px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: linear-gradient(
+        135deg,
+        #1677ff,
+        #0758d6
+    );
+
+    color: white;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.btn:hover,
+button:hover {
+    background: linear-gradient(
+        135deg,
+        #3995ff,
+        #1677ff
+    );
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 5px 18px #1677ff40;
+}
+
+button:active,
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* Danger Button */
+
+button.danger,
+.danger {
+    background: linear-gradient(
+        135deg,
+        #f04452,
+        #bd2438
+    );
+
+    color: white;
+}
+
+button.danger:hover,
+.danger:hover {
+    background: #ff5665;
+}
+
+/* =====================================================
+   TABLES
+   ===================================================== */
+
+.table-wrap {
+    overflow-x: auto;
+    padding: 0;
+}
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 700px;
+}
+
+thead {
+    background: #1b3153;
+}
+
+th {
+    background: #1b3153;
+
+    color: #b9d7ff;
+
+    text-align: left;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    padding: 16px;
+}
+
+td {
+    padding: 15px 16px;
+
+    border-bottom: 1px solid var(--border);
+
+    font-size: 14px;
+}
+
+tbody tr {
+    transition: background 0.2s;
+}
+
+tbody tr:hover {
+    background: #1b315344;
+}
+
+td form {
+    margin: 0;
+}
+
+td button {
+    padding: 7px 11px;
+    font-size: 12px;
+}
+
+/* =====================================================
+   FORMS
+   ===================================================== */
+
+form {
+    margin-top: 15px;
+}
+
+label {
+    display: block;
+
+    color: #c6d7f0;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    margin-bottom: 5px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    margin: 8px 0 18px;
+
+    background: #09172d;
+
+    border: 1px solid #2a4166;
+    border-radius: 10px;
+
+    color: white;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #1680ff;
+
+    box-shadow:
+        0 0 0 3px #1677ff22;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #7186a8;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+select {
+    cursor: pointer;
+}
+
+select option {
+    background: #101d36;
+    color: white;
+}
+
+/* =====================================================
+   LOGIN PAGE
+   ===================================================== */
+
+.card.login {
+    width: 100%;
+    max-width: 440px;
+
+    margin: 70px auto;
+
+    padding: 35px;
+}
+
+.card.login h2 {
+    text-align: center;
+    line-height: 1.4;
+}
+
+.card.login p {
+    text-align: center;
+}
+
+.card.login button {
+    width: 100%;
+}
+
+.card.login .small {
+    margin-top: 20px;
+}
+
+/* Login Error */
+
+.error {
+    color: #ff6470;
+
+    background: #f0445220;
+
+    border: 1px solid #f0445240;
+
+    padding: 12px;
+
+    border-radius: 8px;
+}
+
+/* =====================================================
+   STATUS BADGES
+   ===================================================== */
+
+.badge,
+.status {
+    display: inline-block;
+
+    padding: 5px 12px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    background: #1677ff30;
+    color: #58a7ff;
+}
+
+/* Open */
+
+.status-open {
+    background: #16c78425;
+    color: #16c784;
+}
+
+/* Closed */
+
+.status-closed {
+    background: #94a9c925;
+    color: #94a9c9;
+}
+
+/* High Priority */
+
+.status-high {
+    background: #f0445225;
+    color: #ff6470;
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+footer {
+    text-align: center;
+
+    color: var(--muted);
+
+    padding: 30px 10px;
+    margin-top: 30px;
+
+    border-top: 1px solid var(--border);
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN
+   ===================================================== */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    h2 {
+        font-size: 21px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    nav {
+        gap: 8px;
+    }
+
+    nav a {
+        font-size: 12px;
+        padding: 9px 12px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .card.login {
+        padding: 25px;
+        margin: 35px auto;
+    }
+
+    .metric {
+        font-size: 28px;
+    }
+}
+
+/* =====================================================
+   END OF DECMS CSS
+   ===================================================== */
